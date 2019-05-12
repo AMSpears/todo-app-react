@@ -54,19 +54,19 @@ app.post('/todos', (req, res) => {
 app.delete('/todos/:id', (req, res) => {
   //item to delete
   const itemDeleted = req.body.data
-  
-  // new array with everything EXCEPT the deleted item
-  let deleteTodoItem = todos.filter(todo => todo.id != itemDeleted.id )
 
-  // replace old array with updated one
-  todos = deleteTodoItem
+  // new array with everything EXCEPT the deleted item
+   todos.filter(todo => todo.id != itemDeleted.id )
+
   // returns the updated data
   res.status(201).json(req.body.data);
 });
 
 app.put('/todos/:id', (req, res) => {
 
+  // new array updating data to complete
   todos.filter(todo => todo.id == req.body.data.id)[0].status = "complete"
+
   // returns the updated data
   res.status(201).json(req.body.data);
 }); 
