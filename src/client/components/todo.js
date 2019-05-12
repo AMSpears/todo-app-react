@@ -4,6 +4,7 @@ import React from 'react';
 import Button from './button';
 import TodoLink from './todo-link';
 
+
 const noop = () => {};
 
 /**
@@ -48,7 +49,7 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, status, text }) => {
     <li className={todoCls}>
       <TodoLink text={text} onClick={onClickTodo} />
 
-      <Button text="Delete" onClick={onClickDelete} />
+      <Button className = "deleteBtn" text="X" onClick={onClickDelete} />
     </li>
   );
 }

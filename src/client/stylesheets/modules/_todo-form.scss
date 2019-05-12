@@ -1,0 +1,23 @@
+form {
+    display: flex;
+    justify-content: center;
+    margin:200px auto 50px auto;
+
+    input {
+        border: 1px solid map-get($colors, lightgray);
+        border-radius:4px;
+        width: 600px;
+        padding:20px;
+        font-family: $font-stack;
+        font-size: 30px;
+        font-weight:300;
+        color: map-get($colors, darkgray);
+        background: linear-gradient( $lightgray, map-get($colors, ui-light));
+        outline: none;
+
+        &::placeholder {
+            font-weight:400;
+            color:map-get($colors, gray);
+        }
+    }
+}
