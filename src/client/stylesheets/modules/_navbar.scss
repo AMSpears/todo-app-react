@@ -2,6 +2,9 @@
 .navbar {
   background-color: map-get($colors, lightgray);
   padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &__item {
     text-decoration: none;
@@ -13,5 +16,16 @@
   &__item--active {
     font-weight: 700;
     color: map-get($colors, darkgray);
+  }
+
+  .button {
+    background-color: $green;
+    color: map-get($colors, ui-light);
+    font-size:16px;
+    border:1px solid map-get($colors, ui-transparent);
+    border-radius: 5px;
+    padding: 2px 15px;
+    outline: none;
+    text-decoration: none;
   }
 }

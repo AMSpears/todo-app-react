@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Button from './button';
 
 const noop = () => {};
 
@@ -11,6 +12,8 @@ const noop = () => {};
 const propTypes = {
   filterBy: PropTypes.string,
   onClickFilter: PropTypes.func,
+  status: PropTypes.string,
+  text: PropTypes.string,
 };
 
 /**
@@ -20,6 +23,8 @@ const propTypes = {
 const defaultProps = {
   filterBy: '',
   onClickFilter: noop,
+  status:'',
+  text: ''
 };
 
 /**
@@ -43,38 +48,46 @@ const Navbar = ({ filterBy, onClickFilter }) => {
 
   return (
     <div className={baseCls}>
-      <NavLink
-        to="/"
-        activeClassName={`${baseCls}__item--active`}
-        className={`${baseCls}__item`}
-        onClick={() => onClickFilter('')}
-      >
-        All
-      </NavLink>
-      <NavLink
-        to= "/active"
-        activeClassName={`${baseCls}__item--active`}
-        className={activeLinkCls}
-        onClick={() => onClickFilter('active')}
-      >
-        Active
-      </NavLink>
-      <NavLink
-        to = "/completed"
-        activeClassName={`${baseCls}__item--active`}
-        className={completedLinkCls}
-        onClick={() => onClickFilter('completed')}
-      >
-        Completed
-      </NavLink>
-      <NavLink
-        to= "/archived"
-        activeClassName={`${baseCls}__item--active`}
-        className={archivedLinkCls}
-        onClick={() => onClickFilter('archived')}
-      >
-        Archived
-      </NavLink>
+      <div>
+        <NavLink
+          to="/"
+          activeClassName={`${baseCls}__item--active`}
+          className={`${baseCls}__item`}
+          onClick={() => onClickFilter('')}
+        >
+          All
+        </NavLink>
+        <NavLink
+          to= "/active"
+          activeClassName={`${baseCls}__item--active`}
+          className={activeLinkCls}
+          onClick={() => onClickFilter('active')}
+        >
+          Active
+        </NavLink>
+        <NavLink
+          to = "/completed"
+          activeClassName={`${baseCls}__item--active`}
+          className={completedLinkCls}
+          onClick={() => onClickFilter('completed')}
+        >
+          Completed
+        </NavLink>
+        <NavLink
+          to= "/archived"
+          activeClassName={`${baseCls}__item--active`}
+          className={archivedLinkCls}
+          onClick={() => onClickFilter('archived')}
+        >
+          Archived
+        </NavLink>
+      </div>
+      <div>
+        <Button 
+          className = "button"
+          text = "Archive all completed"
+        />
+      </div>
     </div>
   );
 }
