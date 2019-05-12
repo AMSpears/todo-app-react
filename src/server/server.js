@@ -67,7 +67,8 @@ app.delete('/todos/:id', (req, res) => {
 app.put('/todos/:id', (req, res) => {
 
   todos.filter(todo => todo.id == req.body.data.id)[0].status = "complete"
-  
+  // returns the updated data
+  res.status(201).json(req.body.data);
 }); 
 
 
