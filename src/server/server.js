@@ -60,6 +60,8 @@ app.delete('/todos/:id', (req, res) => {
 
   // replace old array with updated one
   todos = deleteTodoItem
+  // returns the updated data
+  res.status(201).json(req.body.data);
 });
 
 app.put('/todos/:id', (req, res) => {
