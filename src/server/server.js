@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const todos = [
+let todos = [
   { id: 1, text: 'Hello, world!' },
   { id: 2, text: 'Pick up groceries', status: 'complete' }
 ];
@@ -28,15 +28,15 @@ app.get('/todos', (req, res) => {
 app.get('/todos/:id', (req, res) => {
   const id = req.params.id;
   const index = todos.findIndex((todo) => {
-    return todo.id === id;
+    return todo.id == id;
   });
 
   res.json(JSON.stringify(todos[index]));
 });
 
 app.post('/todos', (req, res) => {
-  const text = req.body.data.text;
-
+  const text = req.body.data.text
+  
   if (!text) {
     res.status(400).json({ message: 'text is required' });
 
@@ -52,12 +52,24 @@ app.post('/todos', (req, res) => {
 });
 
 app.delete('/todos/:id', (req, res) => {
-  res.status(500).send({ message: 'not implemented' });
+  //item to delete
+  const itemDeleted = req.body.data
+  
+  // new array with everything EXCEPT the deleted item
+  let deleteTodoItem = todos.filter(todo => todo.id != itemDeleted.id )
+
+  // replace old array with updated one
+  todos = deleteTodoItem
 });
 
 app.put('/todos/:id', (req, res) => {
-  res.status(500).send({ message: 'not implemented' });
-});
+
+  todos.filter(todo => todo.id == req.body.data.id)[0].status = "complete"
+  
+}); 
+
+
+  
 
 // Node server.
 const port = 3000;
