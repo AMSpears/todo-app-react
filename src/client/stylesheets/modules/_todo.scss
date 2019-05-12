@@ -9,12 +9,16 @@
   border-bottom: 1px solid map-get($colors, lightgray);
 
   &--status-complete {
-    text-decoration: line-through;
+    div:first-of-type {
+      text-decoration: line-through;
+      color:map-get($colors, lightgray);
+    }
   }
-  
+
   &--filtered {
     display: none;
   }
+  
 }
 
 

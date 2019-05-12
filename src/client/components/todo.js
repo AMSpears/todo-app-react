@@ -46,11 +46,14 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, status, text }) => {
     + (filtered ? ' todo--filtered' : '');
 
   return (
-    <li className={todoCls}>
-      <TodoLink text={text} onClick={onClickTodo} />
-
-      <Button text='X' onClick={onClickDelete} />
-    </li>
+    <div className={todoCls}>
+      <div>
+        <TodoLink text={text} onClick={onClickTodo} />
+      </div>
+      <div>
+        <Button text='X' onClick={onClickDelete} />
+      </div>
+    </div>
   );
 }
 
