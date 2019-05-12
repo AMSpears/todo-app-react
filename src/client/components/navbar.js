@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -48,18 +48,22 @@ const Navbar = ({ filterBy, onClickFilter }) => {
       >
         All
       </NavLink>
-      <span
+      <NavLink
+        to= "/active"
+        activeClassName={`${baseCls}__item--active`}
         className={activeLinkCls}
         onClick={() => onClickFilter('active')}
       >
         Active
-      </span>
-      <span
+      </NavLink>
+      <NavLink
+        to = "/completed"
+        activeClassName={`${baseCls}__item--active`}
         className={completedLinkCls}
         onClick={() => onClickFilter('completed')}
       >
         Completed
-      </span>
+      </NavLink>
     </div>
   );
 }
