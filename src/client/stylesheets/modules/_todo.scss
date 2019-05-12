@@ -1,11 +1,17 @@
 // Todo module.
 .todo {
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 100px;
+  padding: 40px;
+  border: none;
+  border-bottom: 1px solid map-get($colors, lightgray);
 
   &--status-complete {
     text-decoration: line-through;
   }
-
+  
   &--filtered {
     display: none;
   }

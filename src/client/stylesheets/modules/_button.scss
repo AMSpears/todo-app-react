@@ -1,0 +1,7 @@
+.button {
+    outline: none;
+    border: none;
+    color: map-get($colors, gray);
+    font-size: 20px;
+    font-family: $font-stack;
+}

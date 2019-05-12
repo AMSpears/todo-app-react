@@ -49,7 +49,7 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, status, text }) => {
     <li className={todoCls}>
       <TodoLink text={text} onClick={onClickTodo} />
 
-      <Button className = "deleteBtn" text="X" onClick={onClickDelete} />
+      <Button text='X' onClick={onClickDelete} />
     </li>
   );
 }
