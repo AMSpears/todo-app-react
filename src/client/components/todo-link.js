@@ -32,9 +32,9 @@ const TodoLink = ({ text, onClick }) => {
   const baseCls = 'todo-link';
 
   return (
-    <div className={baseCls} onClick={onClick}>
+    <li className={baseCls} onClick={onClick}>
       {text}
-    </div>
+    </li>
   );
 };
 

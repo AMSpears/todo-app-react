@@ -47,8 +47,9 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, status, text }) => {
 
   return (
     <div className={todoCls}>
-      <div>
-        <TodoLink text={text} onClick={onClickTodo} />
+      <div onClick={onClickTodo}>
+        <div className= 'box'></div>
+        <TodoLink text={text}/>
       </div>
       <div>
         <Button text='X' onClick={onClickDelete} />

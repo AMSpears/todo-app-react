@@ -7,11 +7,32 @@
   padding: 40px;
   border: none;
   border-bottom: 1px solid map-get($colors, lightgray);
+  
+  div:first-of-type {
+      display: flex;
+      align-items: center;
+      color: map-get($colors, darkgray);
+
+      .box {
+        border: 1px dashed map-get($colors, gray);
+        width: 20px;
+        height: 20px;
+        margin-right: 40px;
+        background: linear-gradient($lightgray, map-get($colors, ui-light), map-get($colors, ui-light));
+      }
+  }
 
   &--status-complete {
     div:first-of-type {
       text-decoration: line-through;
-      color:map-get($colors, lightgray);
+      color: map-get($colors, lightgray);
+
+      .box::after {
+        content: '\2713';
+        font-size: 35px;
+        color: $green;
+        position: absolute;
+      }
     }
   }
 
