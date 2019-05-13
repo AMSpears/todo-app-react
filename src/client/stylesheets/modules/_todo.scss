@@ -9,6 +9,10 @@
   border-bottom: 1px solid map-get($colors, lightgray);
   
   div:first-of-type {
+    display: flex;
+    align-items: center;
+
+    .items:first-of-type {
       display: flex;
       align-items: center;
       color: map-get($colors, darkgray);
@@ -20,18 +24,36 @@
         margin-right: 40px;
         background: linear-gradient($lightgray, map-get($colors, ui-light), map-get($colors, ui-light));
       }
+    }
+    .items:last-of-type {
+      display: none;
+    }
   }
 
   &--status-complete {
-    div:first-of-type {
-      text-decoration: line-through;
-      color: map-get($colors, lightgray);
+    div:first-of-type { 
+      .items:first-of-type {
+        text-decoration: line-through;
+        color: map-get($colors, lightgray);
 
-      .box::after {
-        content: '\2713';
-        font-size: 35px;
-        color: $green;
-        position: absolute;
+        .box::after {
+          content: '\2713';
+          font-size: 35px;
+          color: $green;
+          position: absolute;
+        }
+      }
+      .items:last-of-type {
+        display: block;
+
+        .archiveBtn {
+          color: map-get($colors, ui-light);
+          background-color: $green;
+          padding: 5px 20px;
+          border-radius: 5px;
+          margin-left: 20px;
+          text-align: center;
+        }
       }
     }
   }

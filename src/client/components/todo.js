@@ -47,11 +47,16 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, status, text }) => {
 
   return (
     <div className={todoCls}>
-      <div onClick={onClickTodo}>
-        <div className= 'box'></div>
-        <TodoLink text={text}/>
+      <div className = "items-container">
+        <div className = "items" onClick={onClickTodo}>
+          <div className= 'box'></div>
+          <TodoLink text={text}/>
+        </div>
+        <div className = "items">
+          <div className = "archiveBtn">Archive</div>
+        </div>
       </div>
-      <div>
+      <div className= "items-container"> 
         <Button text='X' onClick={onClickDelete} />
       </div>
     </div>
