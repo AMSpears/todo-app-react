@@ -12,7 +12,7 @@ form {
         font-size: 30px;
         font-weight:300;
         color: map-get($colors, darkgray);
-        background: linear-gradient( $lightgray, map-get($colors, ui-light));
+        background: linear-gradient($lightgray, map-get($colors, ui-light), map-get($colors, ui-light), map-get($colors, ui-light));
         outline: none;
 
         &::placeholder {

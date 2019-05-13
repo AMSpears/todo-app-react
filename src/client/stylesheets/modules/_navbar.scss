@@ -1,14 +1,14 @@
 // Navbar module
 .navbar {
   background-color: map-get($colors, lightgray);
-  padding: 10px 40px;
+  padding:10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
+ 
   &__item {
     text-decoration: none;
-    margin: 10px;
+    margin: 0 10px;
     font-size: 16px;
     font-weight: 400;
     color: map-get($colors, gray);
@@ -18,7 +18,7 @@
     font-weight: 700;
     color: map-get($colors, darkgray);
   }
-
+ 
   .button {
     background-color: $green;
     color: map-get($colors, ui-light);
