@@ -59,10 +59,42 @@
     }
   }
 
+  &--status-archive {
+    div:first-of-type {
+      .items:first-of-type {
+        text-decoration: line-through;
+        color: map-get($colors, lightgray);
+
+        .box::after {
+          content: '\2713';
+          font-size: 35px;
+          color: map-get($colors, gray);
+          position: absolute;
+        }
+      }
+
+      .items:last-of-type {
+        display: block;
+        
+        .archiveBtn {
+          color: map-get($colors, ui-light);
+          background-color: $lightgray;
+          padding: 5px 20px;
+          border-radius: 5px;
+          margin-left: 20px;
+          text-align: center;
+
+          &::after {
+            content: 'd'
+          }
+        }
+      }
+    }
+  }
+
   &--filtered {
     display: none;
   }
-  
 }
 
 

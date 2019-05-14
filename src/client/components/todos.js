@@ -85,7 +85,7 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
 
   /**
    * Click handler for clicking on the todo
-   * Toggles status state of Todo
+   * Toggles status state of Todo 
    *
    * @param {object} todo - Todo object
    */
@@ -97,6 +97,20 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
     api('PUT', newTodo, putTodo);
   }
 
+  /**
+    * Click handler for clicking on the todo
+    * Toggles status state of Todo between complete and archive task
+    * @param {object} todo -- Todo object
+  */
+
+  const onClickArchive = todo => {
+    const archiveTodo = Object.assign({}, todo);
+    archiveTodo.status = todo.status === 'archive' ? 'complete' : 'archive';
+    archiveTodo.archive = true;
+
+    api('PUT', archiveTodo, putTodo);
+  }
+  
   /**
    * Renders All Todos
    *
@@ -111,10 +125,13 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
       let filtered;
       switch (filterBy) {
         case 'active':
-          filtered = todo.status === 'complete';
+          filtered = todo.status === 'complete' || todo.status === 'archive';
           break;
         case 'completed':
           filtered = todo.status !== 'complete';
+          break;
+        case 'archived':
+          filtered = todo.status !== 'archive';
           break;
         default:
           filtered = false;
@@ -126,6 +143,7 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
           filtered={filtered}
           onClickDelete={onClickDelete.bind(this, todo)}
           onClickTodo={onClickTodo.bind(this, todo)}
+          onClickArchive={onClickArchive.bind(this, todo)}
           status={todo.status}
           text={todo.text}
         />
