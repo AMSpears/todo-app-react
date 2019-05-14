@@ -27,11 +27,12 @@ const defaultProps = {
   text: ''
 };
 
+
 /**
  * Navbar component
  * @returns {ReactElement}
  */
-const Navbar = ({ filterBy, onClickFilter }) => {
+const Navbar = ({ filterBy, onClickFilter}) => {
   /**
    * Base CSS class
    */
@@ -45,7 +46,7 @@ const Navbar = ({ filterBy, onClickFilter }) => {
 
   let archivedLinkCls = `${baseCls}__item`;
   archivedLinkCls += filterBy === 'archived' ? ` ${baseCls}__item--active` : '';
-
+  
   return (
     <div className={baseCls}>
       <div>

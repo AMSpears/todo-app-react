@@ -45,9 +45,9 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, onClickArchive, status, te
 
   const todoCls = baseCls
     + (status === 'complete' ? ' todo--status-complete' : '')
-    +(status === 'archive' ? ' todo--status-archive' : ' ')
+    + (status === 'archive' ? ' todo--status-archive' : '')
     + (filtered ? ' todo--filtered' : '');
-
+    
   return (
     <div className={todoCls}>
       <div className = "items-container">
