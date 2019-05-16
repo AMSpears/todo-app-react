@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let todos = [
-  { id: 1, text: 'Hello, world!'},
+  { id: 1, text: 'Hello, world!' },
   { id: 2, text: 'Pick up groceries', status: 'complete'},
-  { id: 3, text: 'Pick up laundry', archive: true }
+  { id: 3, text: 'Pick up laundry', status: 'complete', archive: true }
 ];
 
 app.get('/', (req, res) => {
@@ -64,23 +64,23 @@ app.delete('/todos/:id', (req, res) => {
 });
 
 app.put('/todos/:id', (req, res) => {
-  // item to update
-  let itemUpdated = req.body.data 
+    // item to update
+    let itemUpdated = req.body.data
 
- // new array updating data status to complete or archive to true
-  if (itemUpdated.status === 'active') {
-     todos.filter(todo => todo.id == itemUpdated.id)[0].status = 'complete' 
-  } else if (itemUpdated.status === 'complete') {
-     todos.filter(todo => todo.id == itemUpdated.id)[0].archive = true
-  }
+    // new array updating data status to complete 
+    if (itemUpdated.status === 'active') {
+      todos.filter(todo => todo.id == itemUpdated.id)[0].status = 'complete'
+      // new array updating data archive to true 
+    } else if (itemUpdated.status === 'complete') {
+      todos.filter(todo => todo.id == itemUpdated.id)[0].archive = true
+    }
 
+  console.log(itemUpdated)
 
   // returns the updated data
   res.status(201).json(itemUpdated);
 }); 
 
-
-  
 
 // Node server.
 const port = 3000;

@@ -17,8 +17,8 @@ const propTypes = {
   onClickTodo: PropTypes.func,
   onClickArchive: PropTypes.func,
   status: PropTypes.string,
-  archive: PropTypes.bool,
   text: PropTypes.string,
+  archive: PropTypes.bool
 };
 
 /**
@@ -32,7 +32,7 @@ const defaultProps = {
   onClickArchive: noop,
   status: '',
   text: '',
-  archive: false,
+  archive: false
 };
 
 /**
@@ -57,7 +57,7 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, onClickArchive, status, ar
           <div className= 'box'></div>
           <TodoLink text={text}/>
         </div>
-        <div className = "items" onClick = {onClickArchive}>
+        <div className = "items" onClick={onClickArchive}>
           <div className = "archiveBtn">Archive</div>
         </div>
       </div>

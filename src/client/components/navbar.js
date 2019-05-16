@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Button from './button';
+import Todos from './todos';
 
 const noop = () => {};
 
@@ -12,8 +13,10 @@ const noop = () => {};
 const propTypes = {
   filterBy: PropTypes.string,
   onClickFilter: PropTypes.func,
+  archiveAll: PropTypes.func,
   status: PropTypes.string,
   text: PropTypes.string,
+  archive: PropTypes.bool
 };
 
 /**
@@ -23,8 +26,10 @@ const propTypes = {
 const defaultProps = {
   filterBy: '',
   onClickFilter: noop,
+  archiveAll:noop,
   status:'',
-  text: ''
+  text: '',
+  archive: false
 };
 
 
@@ -86,7 +91,7 @@ const Navbar = ({ filterBy, onClickFilter}) => {
       <div className = "btn">
         <Button 
           className = "button"
-          text = "Archive all completed"     
+          text = "Archive all completed"   
         />
       </div>
     </div>

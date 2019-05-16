@@ -83,6 +83,7 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
     api('DELETE', todo, deleteTodo);
   };
 
+ 
   /**
    * Click handler for clicking on the todo
    * Toggles status state of Todo 
@@ -91,9 +92,10 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
    */
   const onClickTodo = todo => {
     const newTodo = Object.assign({}, todo);
-    newTodo.status = todo.status === 'complete' ? 'active' : 'complete';
-    newTodo.archive = false;
-  
+      newTodo.status = todo.status === 'complete' ? 'active' : 'complete';
+      newTodo.archive = false;
+    
+   console.log(newTodo)
     api('PUT', newTodo, putTodo);
   }
 
@@ -105,14 +107,13 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
 
   const onClickArchive = todo => {
     const archiveTodo = Object.assign({}, todo);
+      archiveTodo.status = 'complete';
+      archiveTodo.archive = todo.archive === false ? true : false;
 
-      if (archiveTodo.status === 'complete') {
-        archiveTodo.archive = true
-      }
-
-      api('PUT', archiveTodo, putTodo);
+    console.log(archiveTodo)
+    api('PUT', archiveTodo, putTodo);
   }
-  
+
 
   /**
    * Renders All Todos
@@ -130,12 +131,15 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
         case 'active':
           filtered = todo.status === 'complete' || todo.archive === true;
           break;
+
         case 'completed':
           filtered = todo.status !== 'complete';
           break;
+
         case 'archived':
           filtered = todo.archive !== true;
           break;
+          
         default:
           filtered = false;
       }
