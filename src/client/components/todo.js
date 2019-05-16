@@ -17,6 +17,7 @@ const propTypes = {
   onClickTodo: PropTypes.func,
   onClickArchive: PropTypes.func,
   status: PropTypes.string,
+  archive: PropTypes.bool,
   text: PropTypes.string,
 };
 
@@ -31,21 +32,22 @@ const defaultProps = {
   onClickArchive: noop,
   status: '',
   text: '',
+  archive: false,
 };
 
 /**
  * Todo component
  * @returns {ReactElement}
  */
-const Todo = ({ filtered, onClickDelete, onClickTodo, onClickArchive, status, text }) => {
+const Todo = ({ filtered, onClickDelete, onClickTodo, onClickArchive, status, archive, text }) => {
   /**
    * Base CSS class
    */
   const baseCls = 'todo';
 
   const todoCls = baseCls
-    + (status === 'complete' ? ' todo--status-complete' : '')
-    + (status === 'archive' ? ' todo--status-archive' : '')
+    +(status === 'complete' ? ' todo--status-complete' : '')
+    +(archive === true ? 'todo--status-archive' : '')
     + (filtered ? ' todo--filtered' : '');
     
   return (

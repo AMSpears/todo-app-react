@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 let todos = [
   { id: 1, text: 'Hello, world!'},
-  { id: 2, text: 'Pick up groceries', status: 'complete' },
-  { id: 3, text: 'Pick up laundry', status: 'archive', archive: true }
+  { id: 2, text: 'Pick up groceries', status: 'complete'},
+  { id: 3, text: 'Pick up laundry', archive: true }
 ];
 
 app.get('/', (req, res) => {
@@ -67,12 +67,14 @@ app.put('/todos/:id', (req, res) => {
   // item to update
   let itemUpdated = req.body.data 
 
- // new array updating data status to complete or archive
-  if (req.body.data.status == 'complete') {
-     todos.filter(todo => todo.id == itemUpdated.id)[0].status = 'complete'
-  } else if (req.body.data.status == 'archive') {
-     todos.filter(todo => todo.id == itemUpdated.id)[0].status = 'archive'
+ // new array updating data status to complete or archive to true
+  if (itemUpdated.status === 'active') {
+     todos.filter(todo => todo.id == itemUpdated.id)[0].status = 'complete' 
+  } else if (itemUpdated.status === 'complete') {
+     todos.filter(todo => todo.id == itemUpdated.id)[0].archive = true
   }
+
+  console.log(itemUpdated)
 
   // returns the updated data
   res.status(201).json(itemUpdated);

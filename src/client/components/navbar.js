@@ -83,10 +83,10 @@ const Navbar = ({ filterBy, onClickFilter}) => {
           Archived
         </NavLink>
       </div>
-      <div>
+      <div className = "btn">
         <Button 
           className = "button"
-          text = "Archive all completed"
+          text = "Archive all completed"     
         />
       </div>
     </div>
