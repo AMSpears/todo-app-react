@@ -72,6 +72,7 @@ class TodoForm extends React.Component {
           onChange={this.onChange}
           placeholder="Add new todo..."
           value={this.state.input}
+          maxLength="30"
         />
       </form>
     );
