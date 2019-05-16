@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let todos = [
-  { id: 1, text: 'Hello, world!' },
-  { id: 2, text: 'Pick up groceries', status: 'complete'},
-  { id: 3, text: 'Pick up laundry', status: 'complete', archive: true }
+  { id: 1, text: 'Hello, world!', status: 'active' },
+  { id: 2, text: 'Pick up groceries', status: 'active'},
+  { id: 3, text: 'Pick up laundry', status: 'active'}
 ];
 
 app.get('/', (req, res) => {
@@ -45,7 +45,7 @@ app.post('/todos', (req, res) => {
   }
 
   const id = todos.length + 1;
-  const newTodo = { id, text, status: 'active' };
+  const newTodo = { id, text, status: 'active'};
 
   todos.push(newTodo);
 
