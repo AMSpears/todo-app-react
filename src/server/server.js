@@ -74,7 +74,6 @@ app.put('/todos/:id', (req, res) => {
      todos.filter(todo => todo.id == itemUpdated.id)[0].archive = true
   }
 
-  console.log(itemUpdated)
 
   // returns the updated data
   res.status(201).json(itemUpdated);

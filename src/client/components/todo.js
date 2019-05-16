@@ -43,12 +43,12 @@ const Todo = ({ filtered, onClickDelete, onClickTodo, onClickArchive, status, ar
   /**
    * Base CSS class
    */
-  const baseCls = 'todo';
-
-  const todoCls = baseCls
-    +(status === 'complete' ? ' todo--status-complete' : '')
-    +(archive === true ? 'todo--status-archive' : '')
-    + (filtered ? ' todo--filtered' : '');
+  const todoCls = [
+    'todo', 
+    status === 'complete' ? 'todo--status-complete' : null,
+    archive === true ? 'todo--status-archive': null,
+    filtered ? ' todo--filtered' : null
+  ].join(' ')
     
   return (
     <div className={todoCls}>
