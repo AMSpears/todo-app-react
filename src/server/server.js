@@ -85,7 +85,7 @@ app.put('/todos/:id', (req, res) => {
   res.status(201).json(itemUpdated);
 }); 
 
-
+// archive one item
 app.put('/todos/archive/:id', (req, res) => {
    // item to archive
     let archiveItem =  req.body.data
@@ -101,9 +101,26 @@ app.put('/todos/archive/:id', (req, res) => {
       return todo
     })
 
-    res.status(201).json(archiveItem);
+  res.status(201).json(archiveItem);
 })
 
+app.put('/todos/archiveall/:id', (req, res) => {
+  // items to archive
+    let archiveAllComplete = req.body.data 
+
+     
+  console.log(archiveAllComplete)
+  res.status(201).json(archiveAllComplete);
+})
+
+app.put('/todos/completeall/:id', (req, res) => {
+  // items to archive
+  let completeAllActive = req.body.data
+  
+
+  console.log(completeAllActive)
+  res.status(201).json(completeAllActive);
+})
 
 // Node server.
 const port = 3000;
