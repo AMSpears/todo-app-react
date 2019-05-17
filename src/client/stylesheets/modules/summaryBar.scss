@@ -1,0 +1,12 @@
+.summaryBar {
+    font-family: $font-stack;
+    font-size: 20px;
+    margin: 50px 50px 0 50px;
+    
+    span {
+        font-size: 16px;
+        font-weight: 700;
+        color: map-get($colors, primary);
+        cursor: pointer;
+    }
+}
