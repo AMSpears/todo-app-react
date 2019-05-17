@@ -1,6 +1,6 @@
 # MyTodos
 
-### Additional notes 
+### Additional notes
 
 Added additional packages `nodemon` and  `axios`.
 
