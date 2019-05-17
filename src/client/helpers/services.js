@@ -10,21 +10,20 @@ let url = 'http://localhost:3000/todos';
         'Content-Type': 'application/json'
     }
  } 
-
+// connection to server complete all task
  export function completeAllTasks(updateAllTask){
-     console.log(Task)
-     axios
-     .put(`${url}/completeall`, updateAllTask, options)
-     .then(results => console.log(results.data))
-     .catch(err => console.log(err))
+    axios
+    .put(`${url}/completeall`, updateAllTask, options)
+    // .then(results => console.log(results.data))
+    // .catch(err => console.log(err))
  }
 
+// connection to server archive all items
 export function archiveAllTasks(archiveAll) {
-      console.log("it works")
-        axios
-        .put(`${url}/archiveall`, archiveAll, options)
-        .then(results => console.log(results.data))
-        .catch(err => console.log(err))
+    axios
+    .put(`${url}/archiveall`, archiveAll, options)
+    // .then(results => console.log(results.data))
+    // .catch(err => console.log(err))
 }
 
 

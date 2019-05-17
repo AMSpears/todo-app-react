@@ -36,7 +36,7 @@ app.get('/todos/:id', (req, res) => {
 });
 
 app.post('/todos', (req, res) => {
-  const text = req.body.data.text
+  const text = req.body.data.text;
   
   if (!text) {
     res.status(400).json({ message: 'text is required' });
@@ -54,28 +54,28 @@ app.post('/todos', (req, res) => {
 
 app.delete('/todos/:id', (req, res) => {
   //item to delete
-  const itemDeleted = req.body.data
+  const itemDeleted = req.body.data;
 
   // new array with everything EXCEPT the deleted item
-  todos = todos.filter(todo => todo.id != itemDeleted.id )
+  todos = todos.filter(todo => todo.id != itemDeleted.id );
+  
   // resetting todos to start at index 1 once delete
   todos.map((todo, index) => {
-    todo.id = index + 1
-    console.log(todo)
+    todo.id = index + 1;
   })
   // returns the updated data
   res.status(201).json(itemDeleted);
 
-  console.log(itemDeleted)
 });
 
 app.put('/todos/completeall', (req, res) => {
   // items to archive
-  let completeAllActive = req.body
+  let completeAllActive = req.body;
 
-  // updated the list
-  todos = completeAllActive
+  // updated the complete all active list
+  todos = completeAllActive;
 
+  // returns the updated data
   res.status(201).json(todos);
 })
 
@@ -83,12 +83,11 @@ app.put('/todos/completeall', (req, res) => {
 app.put('/todos/archiveall', (req, res) => {
   // items to archive
   let archiveAllComplete = req.body
-
+  // update the archive all complete list
   todos = archiveAllComplete 
 
+  // returns the updated data
   res.status(201).json(todos);
-
-  console.log("archive all is working")
 })
 
 
@@ -116,7 +115,6 @@ app.put('/todos/archive/:id', (req, res) => {
     // replacing the item to archive with archive true when status is complete
     todos = todos.map(todo => {
       if(todo.id == archiveItem.id){
-        console.log(todo)
         if (todo.status === 'complete'){
           todo.archive = true;
         }
@@ -124,6 +122,7 @@ app.put('/todos/archive/:id', (req, res) => {
       return todo
     })
 
+  // returns the updated data
   res.status(201).json(archiveItem);
 })
 

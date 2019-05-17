@@ -125,7 +125,7 @@ class TodosPage extends React.Component {
           todo.archive = true
 
           return todo   
-                     
+
         } else if (todo.status === "active"){
 
           return todo
@@ -138,7 +138,7 @@ class TodosPage extends React.Component {
 
     this.archiveAllTasks(updateAllArchiveTask)
 
-    console.log(updateAllArchiveTask)
+    // console.log(updateAllArchiveTask)
   }
   /**
    * Render

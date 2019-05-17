@@ -34,8 +34,8 @@ export function getApiPromise(method, data) {
   
   if (method === 'ARCHIVE'){
     url += `/archive/${data.id}`;
-    console.log('api Archive')
-    console.log(method)
+    // console.log('api Archive')
+    // console.log(method)
   }
 
   const options = {
@@ -47,7 +47,7 @@ export function getApiPromise(method, data) {
       'Content-Type': 'application/json'
     }
   }
-console.log(method)
+// console.log(method)
   if (data) {
     options.body = JSON.stringify({
       data,

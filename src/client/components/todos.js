@@ -95,7 +95,7 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
      newTodo.status = todo.status === 'complete' ? 'active' : 'complete';
      newTodo.archive = false;
      
-    console.log(newTodo)
+    // console.log(newTodo)
     api('PUT', newTodo, putTodo);
   }
 
@@ -106,13 +106,13 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
   */
 
   const onClickArchive = todo => {
-    console.log("archive")
+    // console.log("archive")
     const archiveTodo = Object.assign({}, todo);
       if (archiveTodo.status === 'complete'){
         archiveTodo.archive = true;
       }
   
-    console.log(archiveTodo)
+    // console.log(archiveTodo)
     api('ARCHIVE', archiveTodo, putTodo);
   }
 
