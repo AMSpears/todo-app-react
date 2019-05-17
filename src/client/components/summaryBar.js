@@ -5,7 +5,7 @@ class SummaryBar extends Component {
         return (
         <div className = "summaryBar">
             <div> 
-                <span onClick = {this.props.onClickCompleteAll}>Complete All</span>
+                <span className= "completeAllBtn" onClick = {this.props.onClickCompleteAll}>Complete All</span>
             </div>
         </div>
         )
