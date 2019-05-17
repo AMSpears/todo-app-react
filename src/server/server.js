@@ -69,6 +69,29 @@ app.delete('/todos/:id', (req, res) => {
   console.log(itemDeleted)
 });
 
+app.put('/todos/completeall', (req, res) => {
+  // items to archive
+  let completeAllActive = req.body
+
+  // updated the list
+  todos = completeAllActive
+
+  res.status(201).json(todos);
+})
+
+
+app.put('/todos/archiveall', (req, res) => {
+  // items to archive
+  let archiveAllComplete = req.body
+
+  todos = archiveAllComplete 
+
+  res.status(201).json(todos);
+
+  console.log("archive all is working")
+})
+
+
 app.put('/todos/:id', (req, res) => {
     // item to update
     let itemUpdated = req.body.data
@@ -102,24 +125,6 @@ app.put('/todos/archive/:id', (req, res) => {
     })
 
   res.status(201).json(archiveItem);
-})
-
-app.put('/todos/archiveall/:id', (req, res) => {
-  // items to archive
-    let archiveAllComplete = req.body.data 
-
-     
-  console.log(archiveAllComplete)
-  res.status(201).json(archiveAllComplete);
-})
-
-app.put('/todos/completeall/:id', (req, res) => {
-  // items to archive
-  let completeAllActive = req.body.data
-  
-
-  console.log(completeAllActive)
-  res.status(201).json(completeAllActive);
 })
 
 // Node server.

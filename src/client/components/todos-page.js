@@ -8,7 +8,12 @@ import Navbar from './navbar';
 import TodoForm from './todo-form';
 import TodoLink from './todo-link';
 import Todos from './todos';
+import SummaryBar from './summaryBar';
 
+import {
+  completeAllTasks,
+  archiveAllTasks
+} from '../helpers/services'
 /**
  * TodosPage component
  * @class
@@ -46,6 +51,10 @@ class TodosPage extends React.Component {
     this.postTodo = this.postTodo.bind(this);
     this.setFilterBy = this.setFilterBy.bind(this);
     this.updateTodos = this.updateTodos.bind(this);
+    this.completeAll = this.completeAll.bind(this);
+    this.completeAllTasks = completeAllTasks.bind(this);
+    this.archiveAll = this.archiveAll.bind(this);
+    this.archiveAllTasks = archiveAllTasks.bind(this);
   }
 
   /**
@@ -97,6 +106,37 @@ class TodosPage extends React.Component {
     this.setState({ todos });
   }
 
+  completeAll(){
+    let updateAllCompleteTask =  this.state.todos.map(todo => {
+      todo.status = "complete"
+
+      return todo
+    })
+
+    this.setState({todos: updateAllCompleteTask})
+  
+    this.completeAllTasks(updateAllCompleteTask)
+  }
+
+
+  archiveAll(){
+    let updateAllArchiveTask = this.state.todos.map(todo => {
+        if(todo.status === "complete"){
+          todo.archive = true
+          console.log(todo)
+
+          return todo              
+        }
+    })
+
+    this.setState({
+      todos: updateAllArchiveTask
+    })
+
+    this.updateAllArchiveTask(updateAllArchiveTask)
+
+    console.log(updateAllArchiveTask)
+  }
   /**
    * Render
    * @returns {ReactElement}
@@ -104,10 +144,9 @@ class TodosPage extends React.Component {
   render() {
     return (
       <div className={this.baseCls}>
-        <Navbar filterBy={this.state.filterBy} onClickFilter={this.setFilterBy} />
-
+        <Navbar filterBy={this.state.filterBy} onClickFilter={this.setFilterBy} archiveAll = {this.archiveAll} />    
+        <SummaryBar onClickCompleteAll = {this.completeAll}/>
         <TodoForm onSubmit={this.addTodo} />
-
         <Todos
           filterBy={this.state.filterBy}
           todos={this.state.todos}
