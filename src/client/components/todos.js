@@ -128,20 +128,14 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
     }
 
     return todos.map(todo => {
-      // target the complete all btn
-      let completeAllBtn = document.querySelector('.completeAllBtn')
       let filtered;
       switch (filterBy) {
         case 'active':
           filtered = todo.status === 'complete' || todo.archive === true;
-          // shows the complete all btn
-          completeAllBtn.style.display = "block";
           break;
 
         case 'completed':
           filtered = todo.status !== 'complete';
-          // hides the complete all btn
-          completeAllBtn.style.display = "none";
           break;
 
         case 'archived':
