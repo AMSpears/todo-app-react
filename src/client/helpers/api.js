@@ -37,22 +37,10 @@ export function getApiPromise(method, data) {
     console.log('api Archive')
     console.log(method)
   }
-  // connect to ARCHIVEALL PUT request
-   if (method === 'ARCHIVEALL') {
-     url += `/archiveall/${data.id}`;
-     console.log('api Archive all')
-     console.log(method)
-   }
 
-  // connect to COMPLETEALL PUT request
-    if (method === 'COMPLETEALL') {
-      url += `/completeall/${data.id}`;
-       console.log('api complete all')
-       console.log(method)
-    }
   const options = {
-    // adding archive , archiveAll and completeAll methods to API
-    method: method === "ARCHIVE" || method ===  "ARCHIVEALL" || method === "COMPLETEALL" ? "PUT" :
+    // adding archive methods to API
+    method: method === "ARCHIVE" ? "PUT" :
     method,
     headers: {
       'Accept': 'application/json',
