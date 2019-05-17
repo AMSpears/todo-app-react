@@ -107,12 +107,13 @@ class TodosPage extends React.Component {
   }
 
   completeAll(){
+    // checking all todos and updating the status to complete
     let updateAllCompleteTask =  this.state.todos.map(todo => {
       todo.status = "complete"
 
       return todo
     })
-
+  
     this.setState({todos: updateAllCompleteTask})
   
     this.completeAllTasks(updateAllCompleteTask)
@@ -120,21 +121,21 @@ class TodosPage extends React.Component {
 
 
   archiveAll(){
+    // checking all todo items
     let updateAllArchiveTask = this.state.todos.map(todo => {
+      // all todo items with status complete update to archive
         if(todo.status === "complete"){
           todo.archive = true
 
           return todo   
-
+      // if there are items with status active return those items the same
         } else if (todo.status === "active"){
 
           return todo
         }
     })
 
-    this.setState({
-      todos: updateAllArchiveTask
-    })
+    this.setState({ todos: updateAllArchiveTask })
 
     this.archiveAllTasks(updateAllArchiveTask)
 
