@@ -133,7 +133,7 @@ class TodosPage extends React.Component {
       todos: updateAllArchiveTask
     })
 
-    this.updateAllArchiveTask(updateAllArchiveTask)
+    this.archiveAllTasks(updateAllArchiveTask)
 
     console.log(updateAllArchiveTask)
   }

@@ -12,7 +12,7 @@ let url = 'http://localhost:3000/todos';
  } 
 
  export function completeAllTasks(updateAllTask){
-     console.log(updateAllTask)
+     console.log(Task)
      axios
      .put(`${url}/completeall`, updateAllTask, options)
      .then(results => console.log(results.data))
