@@ -89,7 +89,6 @@ const Navbar = ({ filterBy, onClickFilter, archiveAll}) => {
         </NavLink>
       </div>
       <div>
-        <Button />
         <Button 
           className = "button"
           text = "Archive all completed"   

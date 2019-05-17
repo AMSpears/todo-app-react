@@ -123,9 +123,12 @@ class TodosPage extends React.Component {
     let updateAllArchiveTask = this.state.todos.map(todo => {
         if(todo.status === "complete"){
           todo.archive = true
-          console.log(todo)
 
-          return todo              
+          return todo   
+                     
+        } else if (todo.status === "active"){
+
+          return todo
         }
     })
 
@@ -144,8 +147,8 @@ class TodosPage extends React.Component {
   render() {
     return (
       <div className={this.baseCls}>
-        <Navbar filterBy={this.state.filterBy} onClickFilter={this.setFilterBy} archiveAll = {this.archiveAll} />    
-        <SummaryBar onClickCompleteAll = {this.completeAll}/>
+        <Navbar filterBy={this.state.filterBy} onClickFilter={this.setFilterBy} archiveAll={this.archiveAll} />    
+        <SummaryBar onClickCompleteAll={this.completeAll}/>
         <TodoForm onSubmit={this.addTodo} />
         <Todos
           filterBy={this.state.filterBy}
