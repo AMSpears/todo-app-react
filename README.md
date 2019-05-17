@@ -1,5 +1,9 @@
 # MyTodos
 
+### Additional notes 
+
+Added additional packages `nodemon` and  `axios`.
+
 ### Before getting started.
 
 Make sure you clone this repository, and push it up to a repository in your own GitHub account.
