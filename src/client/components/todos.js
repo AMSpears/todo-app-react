@@ -106,12 +106,14 @@ const Todos = ({ filterBy, todos, updateTodos }) => {
   */
 
   const onClickArchive = todo => {
+    console.log("archive")
     const archiveTodo = Object.assign({}, todo);
-      archiveTodo.status =  'complete';
-      archiveTodo.archive = todo.archive === true ? false : true ;
-
+      if (archiveTodo.status === 'complete'){
+        archiveTodo.archive = true;
+      }
+  
     console.log(archiveTodo)
-    api('PUT', archiveTodo, putTodo);
+    api('ARCHIVE', archiveTodo, putTodo);
   }
 
 

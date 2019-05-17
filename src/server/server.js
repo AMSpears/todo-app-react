@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let todos = [
-  { id: 1, text: 'Hello, world!', status: 'active' },
-  { id: 2, text: 'Pick up groceries', status: 'active'},
-  { id: 3, text: 'Pick up laundry', status: 'active'}
+  // { id: 1, text: 'Hello, world!', status: 'active' },
+  // { id: 2, text: 'Pick up groceries', status: 'active'},
+  // { id: 3, text: 'Pick up laundry', status: 'active'}
 ];
 
 app.get('/', (req, res) => {
@@ -57,29 +57,52 @@ app.delete('/todos/:id', (req, res) => {
   const itemDeleted = req.body.data
 
   // new array with everything EXCEPT the deleted item
-   todos.filter(todo => todo.id != itemDeleted.id )
-
+  todos = todos.filter(todo => todo.id != itemDeleted.id )
+  // resetting todos to start at index 1 once delete
+  todos.map((todo, index) => {
+    todo.id = index + 1
+    console.log(todo)
+  })
   // returns the updated data
   res.status(201).json(itemDeleted);
+
+  console.log(itemDeleted)
 });
 
 app.put('/todos/:id', (req, res) => {
     // item to update
     let itemUpdated = req.body.data
-
-    // new array updating data status to complete 
-    if (itemUpdated.status === 'active') {
-      todos.filter(todo => todo.id == itemUpdated.id)[0].status = 'complete'
-      // new array updating data archive to true 
-    } else if (itemUpdated.status === 'complete') {
-      todos.filter(todo => todo.id == itemUpdated.id)[0].archive = true
-    }
-
-  console.log(itemUpdated)
+  
+    // resplacing the item to update with status complete
+    todos = todos.map(todo => {
+      if(todo.id == itemUpdated.id) {
+         todo.status = 'complete'
+      }
+      return todo
+    })
 
   // returns the updated data
   res.status(201).json(itemUpdated);
 }); 
+
+
+app.put('/todos/archive/:id', (req, res) => {
+   // item to archive
+    let archiveItem =  req.body.data
+
+    // replacing the item to archive with archive true when status is complete
+    todos = todos.map(todo => {
+      if(todo.id == archiveItem.id){
+        console.log(todo)
+        if (todo.status === 'complete'){
+          todo.archive = true;
+        }
+      }
+      return todo
+    })
+
+    res.status(201).json(archiveItem);
+})
 
 
 // Node server.

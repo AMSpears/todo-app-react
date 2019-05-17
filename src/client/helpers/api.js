@@ -30,15 +30,24 @@ export function getApiPromise(method, data) {
   if (['DELETE', 'PUT'].indexOf(method) !== -1) {
     url += `/${data.id}`;
   }
+  // connect to ARCHIVE put request 
+  
+  if (method === 'ARCHIVE'){
+    url += `/archive/${data.id}`;
+    console.log('api Archive')
+    console.log(method)
+  }
 
   const options = {
+    // adding archive to API
+    method: method === "ARCHIVE" ? "PUT" :
     method,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     }
   }
-
+console.log(method)
   if (data) {
     options.body = JSON.stringify({
       data,
