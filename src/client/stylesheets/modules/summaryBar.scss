@@ -1,6 +1,8 @@
 .summaryBar {
     font-family: $font-stack;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 400;
+    color: map-get($colors, darkgray);
     margin: 50px 50px 0 50px;
     
     span {
