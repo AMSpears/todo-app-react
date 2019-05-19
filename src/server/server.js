@@ -20,23 +20,24 @@ app.get('/', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
   res.render('index', { bundle });
-  
+
 });
 
+// add route to active 
 app.get('/active', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
   res.render('index', { bundle });
 
 });
-
+// add route to completed
 app.get('/completed', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
   res.render('index', { bundle });
 
 });
-
+// add route to archived
 app.get('/archived', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
