@@ -17,9 +17,19 @@ let todos = [
 ];
 // route to home page -- all todos
 app.get('/', (req, res) => {
+  // const bundle = `//${req.hostname}:8080/public/bundle.js`;
+
+  // res.render('index', { bundle });
+  res.redirect('/all')
+});
+
+// add route to all todos
+app.get('/all', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
-  res.render('index', { bundle });
+  res.render('index', {
+    bundle
+  });
 
 });
 
