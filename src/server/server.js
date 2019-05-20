@@ -27,9 +27,7 @@ app.get('/', (req, res) => {
 app.get('/all', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
-  res.render('index', {
-    bundle
-  });
+  res.render('index', { bundle });
 
 });
 
