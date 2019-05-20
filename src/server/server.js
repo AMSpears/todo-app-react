@@ -9,13 +9,13 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+// update from const to let
 let todos = [
   // { id: 1, text: 'Hello, world!', status: 'active' },
   // { id: 2, text: 'Pick up groceries', status: 'active'},
   // { id: 3, text: 'Pick up laundry', status: 'active'}
 ];
-
+// route to home page -- all todos
 app.get('/', (req, res) => {
   const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
@@ -43,11 +43,11 @@ app.get('/archived', (req, res) => {
 
   res.render('index', { bundle });
 });
-
+// gets all todos
 app.get('/todos', (req, res) => {
   res.json(JSON.stringify(todos));
 });
-
+// gets an specific todo item
 app.get('/todos/:id', (req, res) => {
   const id = req.params.id;
   const index = todos.findIndex((todo) => {
@@ -56,7 +56,7 @@ app.get('/todos/:id', (req, res) => {
 
   res.json(JSON.stringify(todos[index]));
 });
-
+// create new todos
 app.post('/todos', (req, res) => {
   const text = req.body.data.text;
   
@@ -73,7 +73,7 @@ app.post('/todos', (req, res) => {
 
   res.status(201).json(todos);
 });
-
+// delete a todo item
 app.delete('/todos/:id', (req, res) => {
   //item to delete
   const itemDeleted = req.body.data;
@@ -89,7 +89,7 @@ app.delete('/todos/:id', (req, res) => {
   res.status(201).json(itemDeleted);
 
 });
-
+// complete all active todos
 app.put('/todos/completeall', (req, res) => {
   // items to archive
   let completeAllActive = req.body;
@@ -101,7 +101,7 @@ app.put('/todos/completeall', (req, res) => {
   res.status(201).json(todos);
 })
 
-
+// archive all completed todos
 app.put('/todos/archiveall', (req, res) => {
   // items to archive
   let archiveAllComplete = req.body
@@ -112,7 +112,7 @@ app.put('/todos/archiveall', (req, res) => {
   res.status(201).json(todos);
 })
 
-
+// updates a todo item to complete
 app.put('/todos/:id', (req, res) => {
     // item to update
     let itemUpdated = req.body.data
@@ -129,7 +129,7 @@ app.put('/todos/:id', (req, res) => {
   res.status(201).json(itemUpdated);
 }); 
 
-// archive one item
+// update a todo item from completed to archived
 app.put('/todos/archive/:id', (req, res) => {
    // item to archive
     let archiveItem =  req.body.data
