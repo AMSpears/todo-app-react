@@ -5,4 +5,5 @@
     font-size: 20px;
     font-family: $font-stack;
     background-color: map-get($colors, ui-transparent);
+    cursor: pointer;
 }
