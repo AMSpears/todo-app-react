@@ -15,7 +15,7 @@ let todos = [
   // { id: 2, text: 'Pick up groceries', status: 'active'},
   // { id: 3, text: 'Pick up laundry', status: 'active'}
 ];
-// route to home page -- all todos
+// route to home page with redirect to all items route
 app.get('/', (req, res) => {
   // const bundle = `//${req.hostname}:8080/public/bundle.js`;
 
