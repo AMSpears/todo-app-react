@@ -99,7 +99,7 @@ app.delete('/todos/:id', (req, res) => {
 });
 // complete all active todos
 app.put('/todos/completeall', (req, res) => {
-  // items to archive
+  // items to complete
   let completeAllActive = req.body;
 
   // updated the complete all active list
