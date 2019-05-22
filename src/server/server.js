@@ -78,7 +78,7 @@ app.post('/todos', (req, res) => {
   const newTodo = { id, text, status: 'active'};
 
   todos.push(newTodo);
-
+ console.log(newTodo)
   res.status(201).json(todos);
 });
 // delete a todo item
@@ -95,7 +95,7 @@ app.delete('/todos/:id', (req, res) => {
   })
   // returns the updated data
   res.status(201).json(itemDeleted);
-
+  console.log(itemDeleted)
 });
 // complete all active todos
 app.put('/todos/completeall', (req, res) => {
